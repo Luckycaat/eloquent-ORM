@@ -27,6 +27,6 @@ Route::get('/servico/{id}', [SiteController::class, 'servico']);
 
 Route::get('/saudacao/{nome?}', Saudacao::class);
 
-Route::get('/clients', function () {
+Route::get('/clients', function(){
     return Client::get();
 });
