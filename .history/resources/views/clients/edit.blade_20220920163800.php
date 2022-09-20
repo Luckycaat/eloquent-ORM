@@ -17,8 +17,7 @@
         </div>
         <div class="mb-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea class="form-control" id="observacao" name="observacao" rows="3" placeholder="Digite a observação"
-                required>{{ $client->observacao }}
+            <textarea class="form-control" id="observacao" name="observacao" rows="3" placeholder="Digite a observação">{{ $client->observacao }}
             </textarea>
         </div>
 

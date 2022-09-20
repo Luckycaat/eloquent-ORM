@@ -39,7 +39,7 @@ class ClientController extends Controller
         return redirect('/clients');
     }
 
-    public function edit(int $id): View
+    public function edit(int $id)
     {
         $client = Client::find($id);
         return view('clients.edit', [
@@ -47,7 +47,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
+    public function update(int $id, Request $request)
     {
         $client = Client::find($id);
         $client->update([
@@ -59,7 +59,7 @@ class ClientController extends Controller
         return redirect('/clients');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int $id)
     {
         $client = Client::find($id);
         $client->delete();

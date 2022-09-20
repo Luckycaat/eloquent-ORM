@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class ClientController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $clients = Client::get();
 
@@ -18,7 +17,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function show(int $id): View
+    public function show(int $id)
     {
         $client = Client::find($id);
 
@@ -27,7 +26,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function create(): View
+    public function create()
     {
         return view('clients.create');
     }
@@ -39,7 +38,7 @@ class ClientController extends Controller
         return redirect('/clients');
     }
 
-    public function edit(int $id): View
+    public function edit(int $id)
     {
         $client = Client::find($id);
         return view('clients.edit', [
@@ -47,7 +46,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
+    public function update(int $id, Request $request)
     {
         $client = Client::find($id);
         $client->update([
@@ -59,7 +58,7 @@ class ClientController extends Controller
         return redirect('/clients');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int $id)
     {
         $client = Client::find($id);
         $client->delete();

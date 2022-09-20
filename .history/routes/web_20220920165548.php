@@ -36,4 +36,4 @@ Route::get('/saudacao/{nome?}', Saudacao::class);
 // Route::put('/clients/{id}', [ClientController::class, 'update'])->name('clients.update');
 // Route::delete('/clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
-Route::resource('clients', ClientController::class);
+Route::resource('clients', UserController::class);
