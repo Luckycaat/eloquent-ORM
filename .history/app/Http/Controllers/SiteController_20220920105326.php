@@ -39,8 +39,6 @@ class SiteController extends Controller
             ],
         ];
 
-        return view('site.servico', [
-            'servico' => $servicos[$id]
-        ]);
+        return view('servico')
     }
 }

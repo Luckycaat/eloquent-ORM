@@ -10,15 +10,11 @@ class Saudacao extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  string $nome
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function __invoke(string $nome = 'Pedro')
     {
-        return view('saudacao', [
-            'nome' => $nome,
-        ]);
-        // return view('saudacao')->with('nome', $nome);
-
+       return view('saudacao', [])
     }
 }

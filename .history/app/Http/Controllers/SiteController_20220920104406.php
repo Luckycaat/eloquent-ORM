@@ -8,7 +8,8 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('home');
+
+        //return view('welcome');
     }
 
     public function sobre()
@@ -38,9 +39,8 @@ class SiteController extends Controller
                 'descricao' => 'Descrição de uma lavagem de animais...'
             ],
         ];
-
-        return view('site.servico', [
-            'servico' => $servicos[$id]
-        ]);
+        echo $servicos[$id]['nome'];
+        echo "<br>";
+        echo $servicos[$id]['descricao'];
     }
 }

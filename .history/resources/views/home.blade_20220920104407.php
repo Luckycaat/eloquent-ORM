@@ -1,0 +1,1 @@
+echo "Conteúdo dinâmico Home";
