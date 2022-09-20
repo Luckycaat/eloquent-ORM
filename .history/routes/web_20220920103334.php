@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Saudacao;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +23,5 @@ Route::get('/sobre', [SiteController::class, 'sobre']);
 Route::get('/servicos', [SiteController::class, 'servicos']);
 Route::get('/servico/{id}', [SiteController::class, 'servico']);
 
-Route::get('/saudacao/{nome?}', Saudacao::class);
+Route::get('/saudacao/{nome?}', function () {
+});

@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Saudacao;
-use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +17,22 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [SiteController::class, 'index']);
-Route::get('/sobre', [SiteController::class, 'sobre']);
-Route::get('/servicos', [SiteController::class, 'servicos']);
-Route::get('/servico/{id}', [SiteController::class, 'servico']);
+Route::get('/', function () {
+    echo "Conteúdo dinâmico Home";
+    //return view('welcome');
+});
 
-Route::get('/saudacao/{nome?}', Saudacao::class);
+Route::get('/sobre', function () {
+    echo "Conteúdo dinâmico Sobre";
+    //return view('welcome');
+});
+
+Route::get('/servicos', function () {
+    echo "Conteúdo dinâmico Serviços";
+    //return view('welcome');
+});
+
+Route::get('/servico/{id}', function () {
+    echo "Conteúdo dinâmico Home";
+    //return view('welcome');
+});

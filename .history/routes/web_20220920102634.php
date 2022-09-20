@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Saudacao;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [SiteController::class, 'index']);
-Route::get('/sobre', [SiteController::class, 'sobre']);
-Route::get('/servicos', [SiteController::class, 'servicos']);
-Route::get('/servico/{id}', [SiteController::class, 'servico']);
 
-Route::get('/saudacao/{nome?}', Saudacao::class);
+Route::get('/sobre', [SiteController::class, 'sobre']);
+
+Route::get('/servicos', [SiteController::class, 'servico']);
+
+Route::get('/servico/{id}', [SiteController::class, 'index']);
+
+Route::get('/saudacao/{nome?}', function (string $nome = 'Pedro') {
+    echo "Olá $nome";
+});
