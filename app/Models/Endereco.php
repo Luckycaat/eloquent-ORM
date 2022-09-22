@@ -5,19 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionario extends Model
+class Endereco extends Model
 {
     use HasFactory;
-    //exemplo de manipulação de models fora da convenção
 
-    protected $table = 'cadfun';
+    //Mapeando uma tabela e seus relacionamentos fora das convenções
+
+    protected $table = 'cadend';
     protected $primaryKey = 'cod';
 
     const CREATED_AT = 'data_criacao';
     const UPDATED_AT = 'data_atualizacao';
 
-    public function endereco()
+    public function funcionario()
     {
-        return $this->hasOne(Endereco::class, 'codigo_fun', 'cod');
+        return $this->belongsTo(Funcionario::class, 'codigo_fun', 'cod');
     }
 }
