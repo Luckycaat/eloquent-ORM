@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Saudacao;
 use App\Http\Controllers\SiteController;
 
@@ -37,3 +38,6 @@ Route::get('/saudacao/{nome?}', Saudacao::class);
 // Route::delete('/clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
 Route::resource('clients', ClientController::class);
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
