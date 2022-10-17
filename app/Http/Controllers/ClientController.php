@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Http\RedirectResponse;
@@ -11,7 +12,7 @@ class ClientController extends Controller
 {
     public function index(): View
     {
-        $clients = Client::get();
+        $clients = Client::paginate(15);
 
         return view('clients.index', [
             'clients' => $clients,
@@ -32,11 +33,11 @@ class ClientController extends Controller
         return view('clients.create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ClientRequest $request): RedirectResponse
     {
         $dados = $request->except('_token');
         Client::create($dados);
-        return redirect('/clients');
+        return redirect()->route('clients.index')->with('mensagem', 'Cadastrado com Sucesso!');
     }
 
     public function edit(int $id): View
@@ -47,7 +48,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
+    public function update(int $id, ClientRequest $request): RedirectResponse
     {
         $client = Client::findOrFail($id);
         $client->update([
@@ -56,12 +57,11 @@ class ClientController extends Controller
             'observacao' => $request->observacao,
         ]);
 
-        return redirect('/clients');
+        return redirect()->route('clients.index')->with('mensagem', 'Atualizado com Sucesso!');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(Client $client): RedirectResponse
     {
-        $client = Client::findOrFail($id);
         $client->delete();
 
         return redirect('/clients');

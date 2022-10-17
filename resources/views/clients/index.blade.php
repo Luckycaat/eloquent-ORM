@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($clients as $client)
+            @forelse ($clients as $client)
                 <tr>
                     <th scope="row">{{ $client->id }}</th>
                     <td><a href="{{ route('clients.show', $client) }}">{{ $client->nome }}</a></td>
@@ -27,8 +27,18 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td></td>
+                    <td>Nenhum Cliente Cadastrado</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
+
+    {{ $clients->links() }}
+
     <a href="{{ route('clients.create') }}" class="btn btn-success">Novo Cliente</a>
 @endsection
